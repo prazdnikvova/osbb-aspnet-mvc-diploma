@@ -1,0 +1,51 @@
+﻿@using OSBB.Models;
+@model List<Bydunki>
+
+
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Список будинків</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Namber
+            </th>
+            <th>
+                KolichestvoKvartir
+            </th>
+            <th>
+                KolichestvoPodezdov
+            </th>
+        </tr>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modeItem => item.Namber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modeItem => item.KolichestvoKvartir)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modeItem => item.KolichestvoPodezdov)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditBydunki", new { })  
+
+                @Html.ActionLink("Details", "DetailsOfBydunki", new { })
+
+                @Html.ActionLink("Delete", "DeleteBydunki", new { })
+            </td>
+        </tr>
+        }
+    </table>
