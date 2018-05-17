@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB", "OSBB\OSBB.csproj", "{AD4CB547-17A2-4176-B5F2-646E9D0A0E72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB", "OSBB\OSBB.csproj", "{44F3D8B1-74FF-441C-AD34-33E4BDF404B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AD4CB547-17A2-4176-B5F2-646E9D0A0E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD4CB547-17A2-4176-B5F2-646E9D0A0E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD4CB547-17A2-4176-B5F2-646E9D0A0E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD4CB547-17A2-4176-B5F2-646E9D0A0E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F3D8B1-74FF-441C-AD34-33E4BDF404B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F3D8B1-74FF-441C-AD34-33E4BDF404B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F3D8B1-74FF-441C-AD34-33E4BDF404B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F3D8B1-74FF-441C-AD34-33E4BDF404B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {70AC223F-E56C-432D-B94C-E574F05B94FD}
+		SolutionGuid = {801D810F-B76B-4427-AD02-74D59E48CAC4}
 	EndGlobalSection
 EndGlobal
