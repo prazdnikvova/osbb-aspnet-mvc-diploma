@@ -4,18 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace OSBB.Controllers
 {
     public class FlatController : Controller
     {
+        private readonly FlatService _flatService;
         public FlatController()
         {
-
+            _flatService = new FlatService();
         }
-        public ActionResult Index()
+        public async Task< ActionResult> Index()
         {
-            return View();
+            var flats = await _flatService.GetFlats();
+            
+            return View(flats);
         }
         public ActionResult AddFlat()
         {

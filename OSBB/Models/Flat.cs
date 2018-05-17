@@ -8,7 +8,7 @@ namespace OSBB.Models
 {
     public class Flat
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string IP { get; set; }
         public string PIB { get; set; }
         public string Address { get; set; }
