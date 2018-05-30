@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 using System.Threading.Tasks;
-using WebApplication2.Models.School;
-using WebApplication2.Services;
-using WebApplication2.ViewModels;
+using OSBB.Models.House;
+using OSBB.Services;
+using OSBB.ViewModels;
 
 
 namespace OSBB.Controllers

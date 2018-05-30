@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Threading.Tasks;
-using WebApplication2.Models.School;
-using WebApplication2.Repositories;
+using OSBB.Models.House;
+using OSBB.Repositories;
 
 namespace OSBB.Services
 {
