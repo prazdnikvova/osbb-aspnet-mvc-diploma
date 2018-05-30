@@ -12,14 +12,15 @@ namespace OSBB.Controllers
     {
         
         private readonly IHouseService _houseService;
+
         public FlatController(IHouseService houseService)
         {
             _houseService = houseService;
         }
         public async Task<ActionResult> Index()
         {
-            var flat = await _houseService.GetFlatAsync();
-            return View(flat);
+            var flats = await _houseService.GetFlatsAsync();
+            return View(flats);
         }
         public ActionResult AddFlat()
         {
@@ -34,7 +35,7 @@ namespace OSBB.Controllers
         public async Task<ActionResult> DetalisOfFlat(int id)
         {
             var flat = await _houseService.GetFlatAsync(id);
-            return View(new FlatViewModel { Name = flat.FlatName });
+            return View(new FlatViewModel {id = flat.Id, Name = flat.FlatName });
         }
         [HttpPost]
         public async Task<ActionResult> SaveFlat(FlatViewModel flatViewModel, string redirectUrl)

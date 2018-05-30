@@ -201,12 +201,14 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Flat.cs" />
+    <Compile Include="Models\House\Flat.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\HouseRepository.cs" />
     <Compile Include="Services\HouseServise.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\FlatViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -272,6 +274,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FlatViewModel\" />
     <Folder Include="Views\HouseContext\" />
     <Folder Include="Views\HouseRepository\" />
     <Folder Include="Views\HouseServise\" />
