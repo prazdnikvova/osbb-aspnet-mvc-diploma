@@ -1,37 +1,99 @@
-﻿using System;
-using OSBB.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Threading.Tasks;
+using WebApplication2.Models.School;
+using WebApplication2.Services;
+using WebApplication2.ViewModels;
+
 
 namespace OSBB.Controllers
 {
+    [Authorize]
     public class FlatController : Controller
     {
-        private readonly FlatService _flatService;
-        public FlatController()
+        
+        private readonly IHouseService _houseService;
+        public FlatController(IHouseService houseService)
         {
-            _flatService = new FlatService();
+            _houseService = houseService;
         }
-        public async Task< ActionResult> Index()
+        public async Task<ActionResult> Index()
         {
-            var flats = await _flatService.GetFlats();
-            
-            return View(flats);
+            var flat = await _houseService.GetFlatAsync();
+            return View(flat);
         }
         public ActionResult AddFlat()
         {
-            return View();
+            var flatViewModel = new FlatViewModel
+            {
+                Title = "Add New Flat",
+                AddButtonTitle = "Add",
+                RedirectUrl = Url.Action("Index", "Flat")
+            };
+            return View(flatViewModel);
         }
-        public ActionResult EditFlat()
+        public async Task<ActionResult> DetalisOfFlat(int id)
         {
-            return View();
+            var flat = await _houseService.GetFlatAsync(id);
+            return View(new FlatViewModel { Name = flat.FlatName });
         }
-        public ActionResult DeleteFlat()
+        [HttpPost]
+        public async Task<ActionResult> SaveFlat(FlatViewModel flatViewModel, string redirectUrl)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(flatViewModel);
+            }
+            var flat = await _houseService.GetFlatAsync(flatViewModel.Id);
+            if (flat != null)
+            {
+                flat.Flat.Name = flatViewModel.Name;
+                await _houseService.UpdateFlatAsync(flat);
+            }
+            return RedirectToLocal(redirectUrl);
+        }
+
+        public async Task<ActionResult> EditFlat(int id)
+        {
+            var flat = await _houseService.GetFlatAsync(id);
+
+            var flatViewModel = FlatViewModel
+            {
+                Title = "Edit Flat",
+                AddButtonTitle = "Save",
+                RedirectUrl = Url.Action("Index", "Flat"),
+                Name = flat.FlatName,
+                Id = flat.FlatId
+            };
+            return View(flatViewModel);
+        }
+        public async Task<ActionResult> DeleteFlat(int id)
+        {
+            await _houseService.DeleteFlatAsync(id);
             return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public async Task<ActionResult> AddNewFlat(FlatViewModel flatViewModel, string redirectUrl)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(flatViewModel);
+            }
+
+            var flat = new Flat
+            {
+                FlatName = flatViewModel.Name
+            };
+            await _houseService.AddFlatAsync(flat);
+            return RedirectToLocal(redirectUrl);
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Flat");
         }
     }
 }
