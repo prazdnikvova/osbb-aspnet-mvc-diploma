@@ -17,6 +17,13 @@ namespace OSBB.Controllers
         {
             _houseService = houseService;
         }
+
+        public FlatController()
+        {
+            HouseRepository houseRepository = new HouseRepository();
+            _houseService = new HouseService(houseRepository);
+        }
+
         public async Task<ActionResult> Index()
         {
             var flats = await _houseService.GetFlatsAsync();
