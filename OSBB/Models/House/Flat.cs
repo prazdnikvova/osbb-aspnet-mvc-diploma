@@ -1,8 +1,4 @@
 ﻿using System;
-using OSBB.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace OSBB.Models
 {
@@ -20,6 +16,10 @@ namespace OSBB.Models
         public string CostSubsidy { get; set; }
         public string CostPrivilege75 { get; set; }
         public string CostPrivilege50 { get; set; }
+
+
+        public DateTime? DateOfBirth { get; set; }
+        public byte[] Photo { get; set; }
 
     }
 }
