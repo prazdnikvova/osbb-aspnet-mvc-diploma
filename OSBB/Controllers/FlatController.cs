@@ -35,7 +35,7 @@ namespace OSBB.Controllers
         public async Task<ActionResult> DetalisOfFlat(int id)
         {
             var flat = await _houseService.GetFlatAsync(id);
-            return View(new FlatViewModel {id = flat.Id, Name = flat.FlatName });
+            return View(new FlatViewModel {Id = flat.FlatId, Name = flat.FlatName });
         }
         [HttpPost]
         public async Task<ActionResult> SaveFlat(FlatViewModel flatViewModel, string redirectUrl)
@@ -47,7 +47,7 @@ namespace OSBB.Controllers
             var flat = await _houseService.GetFlatAsync(flatViewModel.Id);
             if (flat != null)
             {
-                flat.Flat.Name = flatViewModel.Name;
+                flat.FlatName = flatViewModel.Name;
                 await _houseService.UpdateFlatAsync(flat);
             }
             return RedirectToLocal(redirectUrl);
@@ -57,7 +57,7 @@ namespace OSBB.Controllers
         {
             var flat = await _houseService.GetFlatAsync(id);
 
-            var flatViewModel = FlatViewModel
+            var flatViewModel = new FlatViewModel
             {
                 Title = "Edit Flat",
                 AddButtonTitle = "Save",
@@ -65,6 +65,7 @@ namespace OSBB.Controllers
                 Name = flat.FlatName,
                 Id = flat.FlatId
             };
+
             return View(flatViewModel);
         }
         public async Task<ActionResult> DeleteFlat(int id)

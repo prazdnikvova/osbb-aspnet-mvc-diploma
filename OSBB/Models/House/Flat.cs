@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace OSBB.Models
+namespace OSBB.Models.House
 {
     public class Flat
     {
-        public int Id { get; set; }
-        public string IP { get; set; }
-        public string PIB { get; set; }
+        public int FlatId { get; set; }
+        public string FlatName { get; set; }
+        public string Pib { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string AreaMetr { get; set; }
@@ -20,6 +20,6 @@ namespace OSBB.Models
 
         public DateTime? DateOfBirth { get; set; }
         public byte[] Photo { get; set; }
-
+        //public int FlatId { get; internal set; }
     }
 }

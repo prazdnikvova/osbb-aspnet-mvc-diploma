@@ -11,7 +11,7 @@ namespace OSBB.ViewModels
         public int Id { get; set; }
 
         [Display(Name = "Flat Name")]
-        [Required(ErrorMessage = ("Flat Name is Requred.")), RegularExpression(@"^[a-zA-Z*$", ErrorMessage ="Only Alphabetic characters are allowed.")]
+        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
         public string Name { get; set; }
     }
 }

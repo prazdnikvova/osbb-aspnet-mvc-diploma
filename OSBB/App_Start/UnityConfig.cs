@@ -19,8 +19,8 @@ namespace OSBB.App_Start
         {
             var container = new UnityContainer();
 
-            container.RegisterType<ISchoolRepository, SchoolRepository>();
-            container.RegisterType<ISchoolService, SchoolService>();
+            container.RegisterType<IHouseRepository, HouseRepository>();
+            container.RegisterType<IHouseService, HouseService>();
 
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<ManageController>(new InjectionConstructor());
