@@ -294,18 +294,10 @@
     <Content Include="Views\Flat\AddFlat.cshtml" />
     <Content Include="Views\Flat\EditFlat.cshtml" />
     <Content Include="Views\Flat\DeleteFlat.cshtml" />
+    <Content Include="Views\Flat\DetailsOfFlat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AddFlatBuilder\" />
-    <Folder Include="Views\FlatViewModel\" />
-    <Folder Include="Views\HouseContext\" />
-    <Folder Include="Views\HouseRepository\" />
-    <Folder Include="Views\HouseServise\" />
-    <Folder Include="Views\IHouseRepository\" />
-    <Folder Include="Views\IHouseService\" />
-    <Folder Include="Views\MyAuthAttribute\" />
-    <Folder Include="Views\Сheck\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

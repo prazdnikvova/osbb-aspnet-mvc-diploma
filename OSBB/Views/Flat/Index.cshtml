@@ -1,14 +1,21 @@
 ﻿@using OSBB.Models.House;
 @model List<Flat>
 
-
 @{
     ViewBag.Title = "Flat Page";
 }
 
-<h2>Index</h2>
+<h3>List Of Flats</h3>
 
 @Html.ActionLink("Register New", "AddFlat")
+
+
+@Html.ActionLink("Edit", "EditFlat", new { id = 1234567890 })
+
+@Html.ActionLink("Details", "DetailsOfFlat", new { id = 1234567890 })
+
+@Html.ActionLink("Delete", "DeleteFlat", new { id = 1234567890 })
+
 
 <table class="table">
     <tr>
@@ -16,44 +23,87 @@
             Name
         </th>
         <th>
-
+            +
         </th>
         <th>
-
+            +
         </th>
         <th>
-
+            +
         </th>
         <th>
-
+            +
         </th>
-        
+        <th>
+            +
+        </th>
+        <th>
+            +
+        </th>
+        <th>
+            +
+        </th>
+        <th>
+            +
+        </th>
+        <th>
+            +
+        </th>
+        <th>
+            +
+        </th>
+        <th>
+            +
+        </th>
     </tr>
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-
-        </td>
-        <td>
-
-        </td>
-        <td>
-
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
-
-            @Html.ActionLink("Details", "DetailsOfFlat", new { id = item.FlatId })
-
-            @Html.ActionLink("Delete", "DeleteFlat", new { id = item.FlatId })
-        </td>
-    </tr>
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pib)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatName)
+            </td>
+      </tr>
+      <tr>
+            <td>
+                @Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
 
+                @Html.ActionLink("Details", "DetailsOfFlat", new { id = item.FlatId })
+
+                @Html.ActionLink("Delete", "DeleteFlat", new { id = item.FlatId })
+            </td>
         </tr>
     }
 </table>
