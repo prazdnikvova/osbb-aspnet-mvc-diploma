@@ -1,0 +1,97 @@
+﻿@using OSBB_N.Models;
+@model List<Flat>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            FlatName
+        </th>
+        <th>
+            Pib
+        </th>
+        <th>
+            phone
+        </th>
+        <th>
+            площадь
+        </th>
+        <th>
+            цена за метр
+        </th>
+        <th>
+            FlatName
+        </th>
+        <th>
+            FlatName
+        </th>
+        <th>
+            FlatName
+        </th>
+        <th>
+            FlatName
+        </th>
+        <th>
+            FlatName
+        </th>
+        <th>
+            FlatName
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlatId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlatName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pib)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaMetr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostMetr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostMetr2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostOll)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostSubsidy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostPrivilege50)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostPrivilege75)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
+            @Html.ActionLink("Add", "AddFlat", new { id = item.FlatId })
+            @Html.ActionLink("Delete", "DeleteFlat", new { id = item.FlatId })
+        </td>
+      </tr>
+    }
+
+</table>
