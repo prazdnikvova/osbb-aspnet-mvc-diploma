@@ -1,0 +1,18 @@
+﻿using OSBB_N.Models.House;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace OSBB_N.Repositorys
+{
+    public interface IHouseRepository
+    {
+        Task<Flat> GetFlatAsync(int id);
+        Task<Flat> AddFlatAsync(Flat flat);
+        Task<IEnumerable<Flat>> GetFlatsAsync();
+        Task DeleteStudnetAsync(int id);
+        Task<Flat> UpdateFlatAsync(Flat flat);
+    }
+}

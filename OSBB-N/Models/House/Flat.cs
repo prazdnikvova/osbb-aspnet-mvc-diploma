@@ -1,4 +1,4 @@
-﻿namespace OSBB_N.Models
+﻿namespace OSBB_N.Models.House
 {
     public class Flat
     {

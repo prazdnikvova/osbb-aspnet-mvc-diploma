@@ -1,4 +1,4 @@
-﻿@using OSBB_N.Models;
+﻿@using OSBB_N.Models.House;
 @model List<Flat>
 
 
@@ -88,7 +88,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
-            @Html.ActionLink("Add", "AddFlat", new { id = item.FlatId })
+            @Html.ActionLink("Add", "AddNewFlat", new { id = item.FlatId })
             @Html.ActionLink("Delete", "DeleteFlat", new { id = item.FlatId })
         </td>
       </tr>
