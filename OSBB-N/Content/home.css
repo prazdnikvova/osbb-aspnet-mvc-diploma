@@ -1,0 +1,61 @@
+﻿
+.home-button {
+    width: 1%;
+    height: 300px;
+    display: table-cell!important;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+.home-button-1 {
+    background: #a4c400;
+}
+.home-button-2 {
+    background: #aa00ff;
+}
+.home-button-3 {
+    background: #e3c800;
+}
+.home-button-4 {
+    background: #825a2c;
+}
+.home-button-5 {
+    background: #f472d0;
+}
+.home-button-6 {
+    background: #60a917;
+}
+.home-button-7 {
+    background: #00aba9;
+}
+.home-button-8 {
+    background: #a20025;
+}
+.home-button-9 {
+    background: #fa6800;
+}
+
+
+.div-button {
+    margin-top: 30px;   
+
+}
+
+.div-button a.home-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+    .div-button .glyphicon {
+        font-size: 40px;
+    }
+
+    .display-none {
+        display: none;
+    }
+
+
+.nav-menu {
+    
+}

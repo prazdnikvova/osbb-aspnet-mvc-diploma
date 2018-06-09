@@ -50,10 +50,7 @@ namespace OSBB_N.Controllers
             return View();
         }
 
-        public ActionResult DeleteFlat()
-        {
-            return RedirectToAction("Index");
-        }
+ 
 
 
 
@@ -68,7 +65,19 @@ namespace OSBB_N.Controllers
             }
             var flat = new Flat
             {
-                FlatName = flatViewModel.Name
+                FlatName = flatViewModel.FlatName,
+                FlatIp1 = flatViewModel.FlatIp1,
+                Pib = flatViewModel.Pib,
+                Address = flatViewModel.FlatAddress,
+                PhoneNumber = flatViewModel.PhoneNumber,
+                AreaMetr = flatViewModel.AreaMetr,
+                CostMetr = flatViewModel.CostMetr,
+                CostOll = flatViewModel.CostOll,
+                CostSubsidy = flatViewModel.CostSubsidy,
+                CostPrivilege75 = flatViewModel.CostPrivilege75,
+                CostPrivilege50 = flatViewModel.CostPrivilege50
+
+
             };
             await _houseService.AddFlatAsync(flat);
             return RedirectToLocal(redirectUrl);
@@ -84,6 +93,14 @@ namespace OSBB_N.Controllers
         }
 
 
-      
+
+
+        public async Task<ActionResult> DeleteFlat(int id)
+        {
+            await _houseService.DeleteFlatAsync(id);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
