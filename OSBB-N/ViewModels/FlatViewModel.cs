@@ -13,51 +13,51 @@ namespace OSBB_N.ViewModels
         public string RedirectUrl { get; set; }
 
 
-        [Display(Name = "Номер квартиры")]
-        [Required(ErrorMessage = ("Номер квартиры должен быть заполнен")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Можно вводить только цифры")]
+        [Display(Name = "Власника")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[&nbsp;а-яА-Я іїІЇ']*$", ErrorMessage = "Введіть ПІБ")]
         public string Pib { get; set; }
 
         [Display(Name = "Номер квартиры")]
-        [Required(ErrorMessage = ("Номер квартиры должен быть заполнен")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Можно вводить только цифры")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Можно вводить только цифры")]
         public long FlatIp1 { get; set; }
 
 
         [Display(Name = "Имя")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[0-9а-я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[а-яА-Я іїІЇ']*$", ErrorMessage = "Only alphabetic characters are allowed.")]
         public string FlatName { get; set; }
 
         [Display(Name = "Address")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[а-яА-Яі 0-9,їІЇ']*$", ErrorMessage = "Only alphabetic characters are allowed.")]
         public string FlatAddress { get; set; }
         
 
         [Display(Name = "PhoneNumber")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[а-яА-Яії ІЇ'0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
         public string PhoneNumber { get; set; }
 
-        [Display(Name = "AreaMetr")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
-        public string AreaMetr { get; set; }
+        [Display(Name = "Площа квартири")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        public int AreaMetr { get; set; }
 
-        [Display(Name = "AreaMetr")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
-        public string CostMetr { get; set; }
+        [Display(Name = "Ціна за метр")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        public int CostMetr { get; set; }
 
-        [Display(Name = "AreaMetr")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
-        public string CostOll { get; set; }
+        [Display(Name = "Ціна за квартиру")]
+        [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        public int CostOll { get; set; }
 
-        [Display(Name = "AreaMetr")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
-        public string CostSubsidy { get; set; }
+        [Display(Name = "Ціна з субсидією")]
+        [Required(ErrorMessage = ("......")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        public int CostSubsidy { get; set; }
 
-        [Display(Name = "AreaMetr")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
-        public string CostPrivilege75 { get; set; }
+        [Display(Name = "Ціна з пільгою 75%")]
+        [Required(ErrorMessage = (",,,,,")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        public int CostPrivilege75 { get; set; }
 
-        [Display(Name = "AreaMetr")]
-        [Required(ErrorMessage = ("Studnet Name is required.")), RegularExpression(@"^[а-яА-Я]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
-        public string CostPrivilege50 { get; set; }
+        [Display(Name = "Ціна з пільгою 50%")]
+        [Required(ErrorMessage = ("ююююююю.")), RegularExpression(@"^[0-9]*$", ErrorMessage = "Only alphabetic characters are allowed.")]
+        public int CostPrivilege50 { get; set; }
         
 
 

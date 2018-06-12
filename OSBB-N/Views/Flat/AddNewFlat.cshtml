@@ -14,17 +14,17 @@
         <section id="loginForm">
             @using (Html.BeginForm("AddNewFlat", "Flat", new { RedirectUrl = Model.RedirectUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                <h4>Введіть інформацію про квартиру</h4>
+                <h4>Введіть інформацію про квартиру:</h4>
                 <hr />
                 //VALIDACIYA
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                 <div class=" form-group">
-                    @Html.LabelFor(m => m.FlatName, new { @class = "col-md-2 control-label" })
+                    @*@Html.LabelFor(m => m.FlatName, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.FlatName, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.FlatName, "", new { @class = "text-danger" })
-                    </div>
+                    </div>*@
 
                     @Html.LabelFor(m => m.FlatIp1, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
@@ -74,23 +74,18 @@
                         @Html.ValidationMessageFor(m => m.CostSubsidy, "", new { @class = "text-danger" })
                     </div>
 
-                    @Html.LabelFor(m => m.CostPrivilege75, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.CostPrivilege75, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.CostPrivilege75, "", new { @class = "text-danger" })
-                    </div>
-
-
                     @Html.LabelFor(m => m.CostPrivilege50, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.CostPrivilege50, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.CostPrivilege50, "", new { @class = "text-danger" })
                     </div>
 
-
-
-
-
+                    @Html.LabelFor(m => m.CostPrivilege75, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CostPrivilege75, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.CostPrivilege75, "", new { @class = "text-danger" })
+                    </div>
+                    
                 </div>
 
                 <div class="form-group">

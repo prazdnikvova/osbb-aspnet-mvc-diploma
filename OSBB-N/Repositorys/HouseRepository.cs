@@ -14,7 +14,7 @@ namespace OSBB_N.Repositorys
 
         public HouseRepository()
         {
-            _flats = new List<Flat>{ new Flat { FlatId = 1, FlatName ="13132213",  Pib = "ferfef rfewfr rfew", Address = "fewf 34", PhoneNumber = "55 54 55", AreaMetr = "63", CostMetr = "3.5", CostMetr2 = "0.5", CostOll = "552", CostPrivilege50 = "253", CostPrivilege75 = "126", CostSubsidy = "0" } };
+            _flats = new List<Flat>{ new Flat { FlatId = 1 } };
         }
         public async Task<List<Flat>> GetFlat()
         {

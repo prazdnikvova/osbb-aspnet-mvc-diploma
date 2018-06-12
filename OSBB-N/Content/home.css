@@ -59,3 +59,21 @@
 .nav-menu {
     
 }
+
+img.img-fluid11 {
+    max-width: 100%;
+    height: auto;
+}
+
+.program-scrin11 {
+    margin-top: -20px;
+}
+
+.program-scrin11-n {
+    margin-top: 20px;
+}
+
+.info-panel11 {
+    margin-top: 50px !important;
+}
+

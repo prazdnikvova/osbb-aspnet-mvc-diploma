@@ -8,12 +8,12 @@
         public string Pib { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-        public string AreaMetr { get; set; }
-        public string CostMetr { get; set; }
-        public string CostMetr2 { get; set; }
-        public string CostOll { get; set; }
-        public string CostSubsidy { get; set; }
-        public string CostPrivilege75 { get; set; }
-        public string CostPrivilege50 { get; set; }
+        public int AreaMetr { get; set; }
+        public int CostMetr { get; set; }
+        public int CostMetr2 { get; set; }
+        public int CostOll { get; set; }
+        public int CostSubsidy { get; set; }
+        public int CostPrivilege75 { get; set; }
+        public int CostPrivilege50 { get; set; }
     }
 }
