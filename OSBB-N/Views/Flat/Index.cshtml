@@ -1,47 +1,43 @@
 ﻿@using OSBB_N.Models.House;
+@using System.Web.Mvc.Ajax;
 @model List<Flat>
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Інформація про квартири";
 }
 
-<h2>Index</h2>
-@Html.ActionLink("Register New", "AddNewFlat")
+<h2>Інформація про квартири:</h2>
+<button type="button" style="text-decoration: none!important;" class="btn btn-secondary btn-lg">@Html.ActionLink("Додати нову квартиру", "AddNewFlat")</button>
+<br/>
 
+@*
+@model IEnumerable<AjaxMvcApplication.Models.Book>
+ 
+<div id="searchresults">
+    <h3>Все книги автора : @Model.First().Author</h3>
+    <ul>
+        @foreach (var item in Model)
+        { 
+            <li>@item.Name</li>
+        }
+    </ul>
+</div>
+    *@
 
+<br/>
 <table class="table table-striped table-bordered">
     <tr>
-        <th>
-            IP квартири
-        </th>
-        <th>
-            ПІБ власника
-        </th>
-        <th>
-            Адреса
-        </th>
-        <th>
-            Номер домашнього телефону
-        </th>
-        <th>
-            Площа квартири
-        </th>
-        <th>
-            Ціна за метр
-        </th>
-        <th>
-            Оплата всього
-        </th>
-        <th>
-            З субсидією
-        </th>
-        <th>
-            З пільгою 50%
-        </th>
-        <th>
-            З пільгою 75%
-        </th>
+        <th>IP квартири</th>
+        <th>ПІБ власника</th>
+        <th>Адреса</th>
+        <th>Номер домашнього телефону</th>
+        <th>Площа квартири</th>
+        <th>Ціна за метр</th>
+        <th>Оплата всього</th>
+        <th>З субсидією</th>
+        <th>З пільгою 50%</th>
+        <th>З пільгою 75%</th>
         @*<th>
             FlatName
         </th>
@@ -92,9 +88,9 @@
             @Html.DisplayFor(modelItem => item.CostPrivilege75)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
-            @Html.ActionLink("Add", "AddNewFlat", new { id = item.FlatId })
-            @Html.ActionLink("Delete", "DeleteFlat", new { id = item.FlatId })
+            @*@Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
+        @Html.ActionLink("Add", "AddNewFlat", new { id = item.FlatId })*@
+            @Html.ActionLink("Видалити", "DeleteFlat", new { id = item.FlatId })
         </td>
     </tr>
     }

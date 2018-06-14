@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using OSBB_N.Common;
 using OSBB_N.Models.House;
 using OSBB_N.Repositorys;
 using OSBB_N.Services;
@@ -8,6 +10,8 @@ using OSBB_N.ViewModels;
 
 namespace OSBB_N.Controllers
 {
+
+    [Authorize]
     public class FlatController : Controller
     {
         private readonly IHouseService _houseService; 
@@ -38,8 +42,8 @@ namespace OSBB_N.Controllers
         {
             var flatViewModel = new FlatViewModel
             {
-                Title = "Add New Flat",
-                AddButtonTitle = "Add",
+                Title = "Додати нову квартиру",
+                AddButtonTitle = "Додати",
                 RedirectUrl = Url.Action("Index", "Flat")
             };
 
@@ -101,6 +105,32 @@ namespace OSBB_N.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+
+
+        /*
+        [HttpPost]
+        public ActionResult FlatSearch(string name)
+        {
+            using (var houseContext = new HouseContext())
+            {
+
+                var allflat = houseContext.Flats.Where(a => a.Pib.Contains(name)).ToList();
+                if (allflat.Count <= 0)
+                {
+                    return HttpNotFound();
+                }
+                return AllFlat(allflat);
+            }
+        }
+        */
+
+     
+
+
+
+
 
     }
 }

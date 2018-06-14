@@ -1,0 +1,13 @@
+# Build output and IDE files
+bin/
+obj/
+.vs/
+*.suo
+*.user
+
+# NuGet packages (restored from packages.config)
+packages/
+
+# Local databases
+*.mdf
+*.ldf
