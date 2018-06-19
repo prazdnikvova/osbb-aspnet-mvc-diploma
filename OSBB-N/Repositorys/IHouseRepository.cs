@@ -12,7 +12,7 @@ namespace OSBB_N.Repositorys
         Task<Flat> GetFlatAsync(int id);
         Task<Flat> AddFlatAsync(Flat flat);
         Task<IEnumerable<Flat>> GetFlatsAsync();
-        Task DeleteStudnetAsync(int id);
+        Task DeleteFlatAsync(int id);
         Task<Flat> UpdateFlatAsync(Flat flat);
     }
 }

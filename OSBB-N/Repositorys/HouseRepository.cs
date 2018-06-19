@@ -10,22 +10,6 @@ namespace OSBB_N.Repositorys
 {
     public class HouseRepository : IHouseRepository
     {
-        private static List<Flat> _flats;
-
-        public HouseRepository()
-        {
-            _flats = new List<Flat>{ new Flat { FlatId = 1 } };
-        }
-        public async Task<List<Flat>> GetFlat()
-        {
-            return await Task.Run(() => _flats);
-        }
-
-        public async Task<Flat> GetFlat(int id)
-        {
-            return await Task.Run(() =>_flats.FirstOrDefault(f => f.FlatId == id));
-        }
-
         public async Task<Flat> GetFlatAsync(int id)
         {
             Flat result = null;
@@ -63,7 +47,7 @@ namespace OSBB_N.Repositorys
             return result;
         }
 
-        public async Task DeleteStudnetAsync(int id)
+        public async Task DeleteFlatAsync(int id)
         {
             using (var houseContext = new HouseContext())
             {

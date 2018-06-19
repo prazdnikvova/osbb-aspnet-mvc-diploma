@@ -36,7 +36,7 @@ namespace OSBB_N.Services
 
         public async Task DeleteFlatAsync(int id)
         {
-            await _houseRepository.DeleteStudnetAsync(id);
+            await _houseRepository.DeleteFlatAsync(id);
         }
     }
 }
