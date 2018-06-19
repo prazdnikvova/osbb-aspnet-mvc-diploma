@@ -49,7 +49,8 @@ namespace OSBB_N.Controllers
 
             return View(flatViewModel);
         }
-        public ActionResult EditFlat()
+        // Посилання на сайти комунальних служб (кнопка «Комунальні служби» на головній)
+        public ActionResult Utilities()
         {
             return View();
         }

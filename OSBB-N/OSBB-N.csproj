@@ -308,7 +308,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Flat\Index.cshtml" />
-    <Content Include="Views\Flat\EditFlat.cshtml" />
+    <Content Include="Views\Flat\Utilities.cshtml" />
     <Content Include="Views\Flat\DeleteFlat.cshtml" />
     <Content Include="Views\Flat\AddNewFlat.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
