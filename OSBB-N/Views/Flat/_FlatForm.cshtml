@@ -1,0 +1,111 @@
+﻿@using OSBB_N.ViewModels;
+
+@model FlatViewModel
+
+@* Спільна форма квартири для AddNewFlat і EditFlat: надсилається на ту дію, з якої її відкрито *@
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm(ViewContext.RouteData.GetRequiredString("action"), "Flat", new { RedirectUrl = Model.RedirectUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <h4>Введіть інформацію про квартиру:</h4>
+                <hr />
+                //VALIDACIYA
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class=" form-group">
+
+
+                    @Html.LabelFor(m => m.FlatIp1, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FlatIp1, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FlatIp1, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.Pib, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Pib, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Pib, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.FlatAddress, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FlatAddress, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FlatAddress, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.FlatName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FlatName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FlatName, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.AreaMetr, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.AreaMetr, new { @class = "form-control", onchange = "onchangeevent();" })
+                        @Html.ValidationMessageFor(m => m.AreaMetr, "", new { @class = "text-danger" })
+                    </div>
+                    @Html.LabelFor(m => m.CostMetr, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CostMetr, new { @class = "form-control", onchange = "onchangeevent();" })
+                        @Html.ValidationMessageFor(m => m.CostMetr, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.CostOll, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CostOll, new { @class = "form-control", @readonly = true})
+                        @Html.ValidationMessageFor(m => m.CostOll, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.CostSubsidy, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CostSubsidy, new { @class = "form-control", @readonly = true })
+                        @Html.ValidationMessageFor(m => m.CostSubsidy, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.CostPrivilege50, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CostPrivilege50, new { @class = "form-control", @readonly = true })
+                        @Html.ValidationMessageFor(m => m.CostPrivilege50, "", new { @class = "text-danger" })
+                    </div>
+
+                    @Html.LabelFor(m => m.CostPrivilege75, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.CostPrivilege75, new { @class = "form-control", @readonly = true })
+                        @Html.ValidationMessageFor(m => m.CostPrivilege75, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@Model.AddButtonTitle" class="btn btn-default"/>
+
+                    </div>
+
+                </div>
+
+            }
+        </section>
+
+    </div>
+
+</div>
+
+
+<script>
+    function onchangeevent() {
+        var test1 = document.getElementById('AreaMetr').value;
+        var test2 = document.getElementById('CostMetr').value;
+
+        // суми цілі: дробове значення не прийме поле int у FlatViewModel
+        document.getElementById('CostOll').value = test1 * test2;
+        document.getElementById('CostPrivilege50').value = Math.round(test1 * test2 * 0.5);
+        document.getElementById('CostPrivilege75').value = Math.round(test1 * test2 * 0.25);
+    }
+</script>
