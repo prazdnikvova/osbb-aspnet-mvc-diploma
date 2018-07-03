@@ -12,6 +12,9 @@ namespace OSBB_N.ViewModels
         public string AddButtonTitle { get; set; }
         public string RedirectUrl { get; set; }
 
+        // Ідентифікатор квартири для форми редагування (у формі додавання — 0)
+        public int FlatId { get; set; }
+
 
         [Display(Name = "ПІБ")]
         [Required(ErrorMessage = ("Обов'язково")), RegularExpression(@"^[а-яА-Я іїєґІЇЄҐ'’-]*$", ErrorMessage = "Введіть ПІБ власника квартири українськими літерами")]

@@ -55,17 +55,43 @@ namespace OSBB_N.Controllers
             return View();
         }
 
- 
+        public async Task<ActionResult> EditFlat(int id)
+        {
+            var flat = await _houseService.GetFlatAsync(id);
+            if (flat == null)
+            {
+                return HttpNotFound();
+            }
 
+            var flatViewModel = new FlatViewModel
+            {
+                Title = "Редагувати квартиру",
+                AddButtonTitle = "Зберегти",
+                RedirectUrl = Url.Action("Index", "Flat"),
+                FlatId = flat.FlatId,
+                FlatName = flat.FlatName,
+                FlatIp1 = flat.FlatIp1,
+                Pib = flat.Pib,
+                FlatAddress = flat.Address,
+                PhoneNumber = flat.PhoneNumber,
+                AreaMetr = flat.AreaMetr,
+                CostMetr = flat.CostMetr,
+                CostOll = flat.CostOll,
+                CostSubsidy = flat.CostSubsidy,
+                CostPrivilege75 = flat.CostPrivilege75,
+                CostPrivilege50 = flat.CostPrivilege50
+            };
 
-
-
+            return View(flatViewModel);
+        }
 
         [HttpPost]
         public async Task<ActionResult> AddNewFlat(FlatViewModel flatViewModel, string redirectUrl)
         {
             if (!ModelState.IsValid)
             {
+                // підпис кнопки не надсилається з форми, тому відновлюємо його
+                flatViewModel.AddButtonTitle = "Додати";
                 return View(flatViewModel);
             }
             var flat = new Flat
@@ -85,6 +111,40 @@ namespace OSBB_N.Controllers
 
             };
             await _houseService.AddFlatAsync(flat);
+            return RedirectToLocal(redirectUrl);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditFlat(FlatViewModel flatViewModel, string redirectUrl)
+        {
+            if (!ModelState.IsValid)
+            {
+                flatViewModel.Title = "Редагувати квартиру";
+                flatViewModel.AddButtonTitle = "Зберегти";
+                return View(flatViewModel);
+            }
+
+            // беремо квартиру з бази, щоб не затерти поля, яких немає у формі (CostMetr2)
+            var flat = await _houseService.GetFlatAsync(flatViewModel.FlatId);
+            if (flat == null)
+            {
+                return HttpNotFound();
+            }
+
+            flat.FlatName = flatViewModel.FlatName;
+            flat.FlatIp1 = flatViewModel.FlatIp1;
+            flat.Pib = flatViewModel.Pib;
+            flat.Address = flatViewModel.FlatAddress;
+            flat.PhoneNumber = flatViewModel.PhoneNumber;
+            flat.AreaMetr = flatViewModel.AreaMetr;
+            flat.CostMetr = flatViewModel.CostMetr;
+            flat.CostOll = flatViewModel.CostOll;
+            flat.CostSubsidy = flatViewModel.CostSubsidy;
+            flat.CostPrivilege75 = flatViewModel.CostPrivilege75;
+            flat.CostPrivilege50 = flatViewModel.CostPrivilege50;
+
+            await _houseService.UpdateFlatAsync(flat);
             return RedirectToLocal(redirectUrl);
         }
 
