@@ -88,8 +88,7 @@
             @Html.DisplayFor(modelItem => item.CostPrivilege75)
         </td>
         <td>
-            @*@Html.ActionLink("Edit", "EditFlat", new { id = item.FlatId })
-        @Html.ActionLink("Add", "AddNewFlat", new { id = item.FlatId })*@
+            @Html.ActionLink("Редагувати", "EditFlat", new { id = item.FlatId }) |
             @Html.ActionLink("Видалити", "DeleteFlat", new { id = item.FlatId })
         </td>
     </tr>

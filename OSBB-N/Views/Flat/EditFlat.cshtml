@@ -1,0 +1,17 @@
+﻿@using OSBB_N.ViewModels;
+
+@model FlatViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+
+@Html.Partial("_FlatForm", Model)
+
+<p>@Html.ActionLink("Повернутися до списку квартир", "Index")</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

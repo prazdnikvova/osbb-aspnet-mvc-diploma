@@ -13,6 +13,8 @@
                 <hr />
                 //VALIDACIYA
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.FlatId)
 
                 <div class=" form-group">
 
