@@ -218,6 +218,7 @@
     <Compile Include="Services\IHouseService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FlatViewModel.cs" />
+    <Compile Include="ViewModels\ResidentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
