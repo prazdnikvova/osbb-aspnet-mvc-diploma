@@ -16,5 +16,6 @@ namespace OSBB_N.Common
         }
 
         public DbSet<Flat> Flats { get; set; }
+        public DbSet<Resident> Residents { get; set; }
     }
 }
