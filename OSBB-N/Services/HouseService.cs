@@ -38,5 +38,30 @@ namespace OSBB_N.Services
         {
             await _houseRepository.DeleteFlatAsync(id);
         }
+
+        public async Task<IEnumerable<Resident>> GetResidentsAsync()
+        {
+            return await _houseRepository.GetResidentsAsync();
+        }
+
+        public async Task<Resident> GetResidentAsync(int id)
+        {
+            return await _houseRepository.GetResidentAsync(id);
+        }
+
+        public async Task<Resident> AddResidentAsync(Resident resident)
+        {
+            return await _houseRepository.AddResidentAsync(resident);
+        }
+
+        public async Task<Resident> UpdateResidentAsync(Resident resident)
+        {
+            return await _houseRepository.UpdateResidentAsync(resident);
+        }
+
+        public async Task DeleteResidentAsync(int id)
+        {
+            await _houseRepository.DeleteResidentAsync(id);
+        }
     }
 }
