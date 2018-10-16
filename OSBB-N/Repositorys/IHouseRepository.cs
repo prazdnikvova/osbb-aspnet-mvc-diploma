@@ -14,5 +14,11 @@ namespace OSBB_N.Repositorys
         Task<IEnumerable<Flat>> GetFlatsAsync();
         Task DeleteFlatAsync(int id);
         Task<Flat> UpdateFlatAsync(Flat flat);
+
+        Task<IEnumerable<Resident>> GetResidentsAsync();
+        Task<Resident> GetResidentAsync(int id);
+        Task<Resident> AddResidentAsync(Resident resident);
+        Task<Resident> UpdateResidentAsync(Resident resident);
+        Task DeleteResidentAsync(int id);
     }
 }

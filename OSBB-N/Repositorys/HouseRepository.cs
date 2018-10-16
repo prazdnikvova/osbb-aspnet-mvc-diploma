@@ -71,6 +71,78 @@ namespace OSBB_N.Repositorys
             return flat;
         }
 
+        // Мешканці разом із квартирою (для списку й сторінки видалення)
+        public async Task<IEnumerable<Resident>> GetResidentsAsync()
+        {
+            var result = new List<Resident>();
+
+            using (var houseContext = new HouseContext())
+            {
+                result = await houseContext.Residents
+                    .Include(r => r.Flat)
+                    .OrderBy(r => r.Flat.Address)
+                    .ThenBy(r => r.Pib)
+                    .ToListAsync();
+            }
+
+            return result;
+        }
+
+        public async Task<Resident> GetResidentAsync(int id)
+        {
+            Resident result = null;
+
+            using (var houseContext = new HouseContext())
+            {
+                result = await houseContext.Residents
+                    .Include(r => r.Flat)
+                    .FirstOrDefaultAsync(r => r.ResidentId == id);
+            }
+
+            return result;
+        }
+
+        public async Task<Resident> AddResidentAsync(Resident resident)
+        {
+            Resident result = null;
+
+            using (var houseContext = new HouseContext())
+            {
+                result = houseContext.Residents.Add(resident);
+                await houseContext.SaveChangesAsync();
+            }
+
+            return result;
+        }
+
+        public async Task<Resident> UpdateResidentAsync(Resident resident)
+        {
+            using (var houseContext = new HouseContext())
+            {
+                houseContext.Entry(resident).State = EntityState.Modified;
+
+                await houseContext.SaveChangesAsync();
+            }
+
+            return resident;
+        }
+
+        public async Task DeleteResidentAsync(int id)
+        {
+            using (var houseContext = new HouseContext())
+            {
+                var resident = await houseContext.Residents.FirstOrDefaultAsync(r => r.ResidentId == id);
+                if (resident == null)
+                {
+                    return;
+                }
+
+                houseContext.Residents.Remove(resident);
+
+                await houseContext.SaveChangesAsync();
+            }
+        }
+
 
     }
 }
