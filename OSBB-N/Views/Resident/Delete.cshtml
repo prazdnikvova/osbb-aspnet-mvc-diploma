@@ -1,0 +1,34 @@
+﻿@using OSBB_N.Models.House;
+@model Resident
+
+@{
+    ViewBag.Title = "Видалити мешканця";
+}
+
+<h2>Видалити мешканця</h2>
+<h4>Ви дійсно хочете видалити цей запис?</h4>
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>ПІБ</dt>
+    <dd>@Model.Pib</dd>
+
+    <dt>Квартира</dt>
+    <dd>@(Model.Flat != null ? Model.Flat.Address : "")</dd>
+
+    <dt>Телефон</dt>
+    <dd>@Model.PhoneNumber</dd>
+
+    <dt>E-mail</dt>
+    <dd>@Model.Email</dd>
+
+    <dt>Власник</dt>
+    <dd>@(Model.IsOwner ? "Так" : "Ні")</dd>
+</dl>
+
+@using (Html.BeginForm("Delete", "Resident", new { id = Model.ResidentId }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Видалити" class="btn btn-danger" />
+    @Html.ActionLink("Скасувати", "Index", routeValues: null, htmlAttributes: new { @class = "btn btn-link" })
+}

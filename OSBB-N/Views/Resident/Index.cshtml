@@ -1,0 +1,41 @@
+﻿@using OSBB_N.Models.House;
+@model List<Resident>
+
+@{
+    ViewBag.Title = "Мешканці";
+}
+
+<h2>Мешканці будинку:</h2>
+<p>@Html.ActionLink("Додати мешканця", "Add", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg" })</p>
+
+@if (Model.Count == 0)
+{
+    <p>Мешканців ще не додано.</p>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>ПІБ</th>
+            <th>Квартира</th>
+            <th>Телефон</th>
+            <th>E-mail</th>
+            <th>Власник</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Pib)</td>
+                <td>@(item.Flat != null ? item.Flat.Address : "")</td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@(item.IsOwner ? "Так" : "Ні")</td>
+                <td>
+                    @Html.ActionLink("Редагувати", "Edit", new { id = item.ResidentId }) |
+                    @Html.ActionLink("Видалити", "Delete", new { id = item.ResidentId })
+                </td>
+            </tr>
+        }
+    </table>
+}

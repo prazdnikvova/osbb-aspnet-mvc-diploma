@@ -316,6 +316,11 @@
     <Content Include="Views\Flat\DeleteFlat.cshtml" />
     <Content Include="Views\Flat\AddNewFlat.cshtml" />
     <Content Include="Views\Flat\_FlatForm.cshtml" />
+    <Content Include="Views\Resident\Index.cshtml" />
+    <Content Include="Views\Resident\Add.cshtml" />
+    <Content Include="Views\Resident\Edit.cshtml" />
+    <Content Include="Views\Resident\Delete.cshtml" />
+    <Content Include="Views\Resident\_ResidentFields.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />

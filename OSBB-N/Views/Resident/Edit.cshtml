@@ -1,0 +1,27 @@
+﻿@using OSBB_N.ViewModels;
+@model ResidentViewModel
+
+@{
+    ViewBag.Title = "Редагувати мешканця";
+}
+
+<h2>Редагувати мешканця</h2>
+
+@using (Html.BeginForm("Edit", "Resident", new { id = Model.ResidentId }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ResidentId)
+    <hr />
+    @Html.Partial("_ResidentFields", Model)
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Зберегти" class="btn btn-default" />
+            @Html.ActionLink("Скасувати", "Index", routeValues: null, htmlAttributes: new { @class = "btn btn-link" })
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
